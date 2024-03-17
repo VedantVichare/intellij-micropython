@@ -76,6 +76,8 @@ def main(args: List[str]) -> None:
         if remote_dir:
             make_dirs(files, remote_dir, created_cache)
         with open(local_path, 'rb') as fd:
+                 # Adding a delay of 3 seconds before uploading
+            time.sleep(3)
             files.put(remote_path, fd.read())
 
     print('Soft reboot', file=sys.stderr, flush=True)
